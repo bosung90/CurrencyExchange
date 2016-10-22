@@ -125,6 +125,9 @@ export default class Main extends Component {
       </TouchableOpacity>
     )
   }
+  _swapCurrency(){
+    this.setState({startCurrency: this.state.toCurrency, toCurrency: this.state.startCurrency})
+  }
   _handleNumberPad(number) {
     switch(number) {
       case 'clear':
@@ -164,7 +167,7 @@ export default class Main extends Component {
           </View>
           <View style={{flexDirection: 'row', alignItems: 'center'}}>
             <View style={{flex: 1, height: 1, backgroundColor: 'rgba(255,255,255,0.43)', marginLeft: 24, marginRight: 16}}/>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={()=>this._swapCurrency()}>
               <Image style={{marginRight: 24}} source={common.images.swap}/>
             </TouchableOpacity>
           </View>
